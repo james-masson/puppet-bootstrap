@@ -13,11 +13,6 @@ class puppet-bootstrap {
       mode  => "0644",
     }
 
-    # Current Puppet packages won't work if SELinux is enforcing
-    if ( $selinux_enforced == "true" ) {
-        fail( "SELinux is enforcing" )
-    }
-
     file { "/etc/yum.repos.d/puppet.repo":
         ensure  => file,
         replace => false,
